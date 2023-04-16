@@ -5,4 +5,8 @@ Data source 1: The MOF collection in the CSD database: https://www.ccdc.cam.ac.u
 
 Data Source 2: The synthesis procedures extracted from the literature: Mining Insights on Metal–Organic Framework Synthesis from Scientific Literature Texts. Hyunsoo Park, Yeonghun Kang, Wonyoung Choe, and Jihan Kim. https://doi.org/10.1021/acs.jcim.1c01297 
 
+Data Source 3: Computation-Ready Experimental Metal-Organic Framework (CoRE MOF) 2019 Dataset: https://zenodo.org/record/3370144#.ZDvnDNLMKCU
+
+Data Source 4: Reticular Chemistry Naming and Numbering Database: https://globalscience.berkeley.edu/database
+
 The following steps describe how to create the MOF-KG from the sources:
