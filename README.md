@@ -1,5 +1,5 @@
 # Knowledge Graph Question Answering for Materials Science (KGQA4MAT)
-## Unlocking the Knowledge about Meta-Organic Frameworks (MOFs) with Natural Language Interface
+## A Benchmark for Developing Natural Language Interface for Metal-Organic Frameworks Knowledge Graph (MOF-KG)
 
 We develop a novel benchmark for NL question answering over a knowledge graph for Metal-Organic
 Frameworks (MOFs). 
