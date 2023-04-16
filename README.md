@@ -11,3 +11,7 @@ demonstrate the potential of our approach through the benchmark dataset and the 
 
 ### Exertal link:
 - QALD-9 dataset: [https://github.com/ag-sc/QALD](https://github.com/ag-sc/QALD)
+- The MOF collection in the CSD database: https://www.ccdc.cam.ac.uk/free-products/csd-mof-collection/
+- The synthesis procedures extracted from the literature: Mining Insights on Metal–Organic Framework Synthesis from Scientific Literature Texts. Hyunsoo Park, Yeonghun Kang, Wonyoung Choe, and Jihan Kim. https://doi.org/10.1021/acs.jcim.1c01297
+- MOFid: https://github.com/snurr-group/mofid
+
