@@ -1,0 +1,970 @@
+What metals does MOF-3 contains?
+MATCH (m:MOF {name:'MOF-3'})-[p:has_metal]-(t:Metal) RETURN t.name
+What metals are present in MOF-3?
+Which types of metal does MOF-3 contain?
+What is the composition of metals in MOF-3?
+
+Which MOFs contain the same metals as MOF-5?
+MATCH (m1:MOF {name:'MOF-5'})-[p1:has_metal]-(t1:Metal)-[p2:has_metal]-(m2:MOF) RETURN m2.refcode, m2.name LIMIT 25
+What other MOFs have identical metal components to MOF-5?
+Which MOFs share the same metal composition with MOF-5?
+What are the MOFs that possess the metals found in MOF-5?
+
+Give me the refcodes and names of the MOFs in the family 'Zn-oxide.'
+MATCH (m:MOF)-[:has_family]->(f:Family {name:'Zn-oxide/zinc oxide'}) RETURN m.refcode, m.name ORDER BY m.refcode
+Can you provide me with the reference codes and names of the MOFs belonging to the 'Zn-oxide' family?
+What are the refcodes and names of the MOFs categorized under the 'Zn-oxide' family?
+I would like to know the names and reference codes of the MOFs in the 'Zn-oxide' family, could you please provide them?
+
+How many MOFs in the family 'Zn-oxide'?
+MATCH (m:MOF)-[:has_family]->(f:Family {name:'Zn-oxide/zinc oxide'}) RETURN count(m.refcode)
+What is the number of MOFs belonging to the 'Zn-oxide' family?
+How many MOFs are categorized under the 'Zn-oxide' family?
+What is the quantity of MOFs that fall into the 'Zn-oxide' family?
+
+How many MOFs in the family 'Cu-Cu paddlewheels'?
+MATCH (m:MOF)-[:has_family]->(f:Family) WHERE f.name CONTAINS 'Cu-Cu paddleWheels' RETURN count(m.refcode)
+What is the count of MOFs belonging to the 'Cu-Cu paddlewheels' family?
+How many MOFs are classified under the 'Cu-Cu paddlewheels' family?
+What is the number of MOFs within the 'Cu-Cu paddlewheels' group?
+
+Give me the list of MOF names that contain 'IRMOF.'
+MATCH (m:MOF) WHERE m.name CONTAINS 'IRMOF' RETURN m.name
+Can you provide me with a list of MOF names that include the term 'IRMOF'?
+I'm looking for a list of MOF names that have the word 'IRMOF' in them. Could you give that to me?
+Could you furnish me with a list of MOF names that contain the string 'IRMOF'?
+
+List the chemical formula of the MOF HKUST-1.
+MATCH (m:MOF) WHERE m.name CONTAINS 'HKUST-1' RETURN m.refcode, m.name, m.chemical_formula
+What is the chemical formula of HKUST-1, an MOF?
+Provide the molecular formula for the MOF known as HKUST-1.
+Can you state the chemical formula that represents the MOF HKUST-1?
+
+What is the chemical name of the MOF 'MOF-1'?
+MATCH (m:MOF) WHERE m.name CONTAINS 'MOF-1' RETURN m.refcode, m.name, m.chemical_name
+Can you provide the chemical name for 'MOF-1'?
+What is the specific chemical name assigned to 'MOF-1'?
+List the chemical name of the MOF 'MOF-1'.
+
+Which is the most popular MOF name in the database?
+MATCH (m:MOF) WHERE m.name <> "" WITH m.name AS name, count(*) AS frequency ORDER BY frequency DESC LIMIT 1 RETURN name
+What is the name of the most frequently referenced MOF in the database?
+Among all the MOFs in the database, which name appears the most often and can be considered the most popular?
+Could you tell me which MOF name is the most commonly used and well-known within the database?
+
+What is the percentage void space of the MOF IRMOF-74?
+MATCH (m:MOF) WHERE m.name CONTAINS 'IRMOF-74' RETURN m.refcode, m.name, m.percentage_void_space ORDER BY m.percentage_void_space
+How much void space, as a percentage, does the MOF IRMOF-74 possess?
+What is the proportion of void area, expressed as a percentage, within the structure of MOF IRMOF-74?
+Could you specify the percentage of void space in the MOF IRMOF-74?
+
+List the MOFs whose melting point values exist in the database.
+MATCH (m:MOF)  WHERE m.melting_point <> "" RETURN m.refcode, m.name, m.melting_point
+What are the names of the MOFs that have recorded melting point values in the database?
+Which MOFs in the database have documented melting points?
+Can you provide a list of MOFs that have their melting points listed in the database?
+
+What is the density of the MOF HKUST-1?
+MATCH (m:MOF) WHERE m.name CONTAINS 'HKUST-1' RETURN m.refcode, m.name, m.density
+What is the value of the density of MOF HKUST-1?
+Could you provide the density measurement of MOF HKUST-1?
+Give me the density of the MOF HKUST-1.
+
+List IRMOF MOFs that have Sohncke space group.
+MATCH (m:MOF) WHERE (m.name CONTAINS 'IRMOF') and (m.sohncke_space_group = 'Yes') RETURN m.refcode, m.name, m.sohncke_space_group
+Which IRMOF MOFs belong to the Sohncke space group?
+Can you name the IRMOF MOFs that exhibit the Sohncke space group?
+What are the IRMOF MOFs that possess the Sohncke space group?
+
+What are the recrystlization solvents for MOF 'IRMOF'?
+MATCH (m:MOF) WHERE m.name CONTAINS 'IRMOF' RETURN m.refcode, m.name, m.solvent
+Which solvents are used for the recrystallization of MOF 'IRMOF'?
+Can you specify the solvents employed in the recrystallization process of MOF 'IRMOF'?
+Give me the recrystallization solvents for MOF 'IRMOF'.
+
+What was the pressure at which a MOF 'ZIF' was synthesized?
+MATCH (m:MOF) WHERE m.name CONTAINS 'ZIF' RETURN m.refcode, m.name, m.pressure
+At what pressure was MOF 'ZIF' synthesized?
+Can you tell me the pressure used for synthesizing MOF 'ZIF'?
+What was the synthesis pressure for MOF 'ZIF'?
+
+What was the temperature at which a MOF 'HKUST-1' was synthesized?
+MATCH (m:MOF) WHERE m.name CONTAINS 'HKUST-1' RETURN m.refcode, m.name, m.temperature
+Can you provide the temperature at which MOF 'HKUST-1' was synthesized?
+What is the synthesis temperature of MOF 'HKUST-1'?
+At what temperature was MOF 'HKUST-1' synthesized?
+
+What is the value of z_prime for th MOF 'IRMOF'?
+MATCH (m:MOF) WHERE m.name CONTAINS 'IRMOF' RETURN m.refcode, m.name, m.z_prime
+Could you specify the value of z_prime for MOF 'IRMOF'?
+What is the numerical value assigned to z_prime for MOF 'IRMOF'?
+What is the z_prime value of MOF 'IRMOF'?
+
+Does the MOF 'ZIF-1' have a 3D structure?
+MATCH (m:MOF) WHERE m.name CONTAINS 'ZIF-1' RETURN m.refcode, m.name, m.has_3d_structure
+Is the structure of MOF 'ZIF-1' three-dimensional?
+Can MOF 'ZIF-1' be classified as having a 3D structure?
+Does the molecular framework of MOF 'ZIF-1' have a 3D arrangement?
+
+List the 'HKUST-1' MOFs that have any disorder present in their structures.
+MATCH (m:MOF) WHERE (m.name CONTAINS 'HKUST-1') and (m.has_disorder = true) RETURN m.refcode, m.name, m.has_disorder
+Which 'HKUST-1' MOFs exhibit disorder in their structures?
+Can you name the 'HKUST-1' MOFs that have disorder present in their structures?
+What are the 'HKUST-1' MOFs that possess structural disorder?
+
+What is the volume of the unit cell of a MOF 'IRMOF'?
+MATCH (m:MOF) WHERE m.name CONTAINS 'IRMOF' RETURN m.refcode, m.name, m.cell_volume
+Can you tell me the unit cell volume of MOF 'IRMOF'?
+What is the numerical value assigned to the unit cell volume of MOF 'IRMOF'?
+Give me the volume of the unit cell for MOF 'IRMOF'.
+
+What is the z value of a MOF 'IRMOF'?
+MATCH (m:MOF) WHERE m.name CONTAINS 'IRMOF' RETURN m.refcode, m.name, m.z_value
+What is the numerical value assigned to the z parameter of MOF 'IRMOF'?
+Can you provide the z value for MOF 'IRMOF'?
+List the z value of MOF 'IRMOF'.
+
+What are the names of the databases from which the MOFs 'IRMOF' were obtained?
+MATCH (m:MOF) WHERE m.name CONTAINS 'IRMOF' RETURN m.refcode, m.name, m.database_name
+Can you tell me the names of the databases that provided MOFs 'IRMOF'?
+From which databases were the MOFs 'IRMOF' sourced?
+What are the databases that contributed MOFs 'IRMOF'?
+
+What are the lengths of the edges of the unit cell of a MOF 'MOF-3?
+MATCH (m:MOF) WHERE m.name CONTAINS 'MOF-3' RETURN m.refcode, m.name, m.cell_lengths
+What is the value of the edge length for each dimension of the unit cell of MOF 'MOF-3'?
+Can you specify the dimensions of the edges of the unit cell of MOF 'MOF-3'?
+What is the length of each edge of the unit cell in MOF 'MOF-3'?
+
+What are the angles between the edges of the unit cell of a MOF 'IRMOF'?
+MATCH (m:MOF) WHERE m.name CONTAINS 'IRMOF' RETURN m.refcode, m.name, m.cell_angles
+Can you provide the values of the angles between the edges of the unit cell in MOF 'IRMOF'?
+What are the edge angle measurements of the unit cell in MOF 'IRMOF'?
+Give me the angles between the edges of the unit cell of a MOF 'IRMOF'.
+
+When a MOF 'HKUST-1' was deposited in the database?
+MATCH (m:MOF) WHERE m.name CONTAINS 'HKUST-1' RETURN m.refcode, m.name, m.deposition_date
+What is the date of deposition of MOF 'HKUST-1' in the database?
+Can you specify the deposition date of MOF 'HKUST-1' in the database?
+When was MOF 'HKUST-1' added to the database?
+
+What is the source of a MOF 'IRMOF'?
+MATCH (m:MOF) WHERE m.name CONTAINS 'IRMOF' RETURN m.refcode, m.name, m.source
+Where did MOF 'IRMOF' originate from?
+Can you identify the origin of MOF 'IRMOF'?
+What is the MOF 'IRMOF' sourced from?
+
+What is the color of a MOF 'MOF-5'?
+MATCH (m:MOF) WHERE m.name CONTAINS 'MOF-5' RETURN m.refcode, m.name, m.color
+Can you describe the color of MOF 'MOF-5'?
+What is the hue of MOF 'MOF-5'?
+How would you characterize the color of MOF 'MOF-5'?
+
+What is the unique identifier for a MOF 'IRMOF'?
+MATCH (m:MOF) WHERE m.name CONTAINS 'MOF-5' RETURN m.refcode, m.name, m.mofid
+Can you provide the unique identifier assigned to MOF 'IRMOF'?
+What is the specific identification code for MOF 'IRMOF'?
+List the unique id associated with MOF 'IRMOF'.
+
+What is the data source for the MOF 'MOF-5'?
+MATCH (m:MOF) WHERE m.name CONTAINS 'MOF-5' RETURN m.refcode, m.name, m.datasource
+From which source was the data for MOF 'MOF-5' obtained?
+Can you identify the database or publication that provided data for MOF 'MOF-5'?
+What is the origin of the information on MOF 'MOF-5'?
+
+What is the deposition number of the MOF 'MOF-5' in the database?
+MATCH (m:MOF) WHERE m.name CONTAINS 'MOF-5' RETURN m.refcode, m.name, m.deposition_number
+Can you provide the deposition number assigned to MOF 'MOF-5' in the database?
+What is the specific code for MOF 'MOF-5' assigned by the database upon deposition?
+Give me the deposition number for MOF 'MOF-5' in the database.
+
+What is the mofkey of a MOF whose name contains 'MOF-5'?
+MATCH (m:MOF) WHERE m.name CONTAINS 'MOF-5' RETURN m.refcode, m.name, m.mofkey
+What is the mofkey assigned to MOFs with the name containing 'MOF-5'?
+Could you provide the mofkey for MOFs whose name includes 'MOF-5'?
+What is the unique mofkey associated with MOFs that have 'MOF-5' in their names?
+
+List the MOFs whose frameworks are charged?
+MATCH (m:MOF) WHERE m.charged_framework = 'Yes' RETURN m.refcode, m.name, m.charged_framework
+Can you provide a list of MOFs that have charged frameworks?
+What are the MOFs that possess charged frameworks?
+Which MOFs have frameworks that are electrically charged?
+
+List the MOFs that hydrogen atoms were added to the structures. 
+MATCH (m:MOF) WHERE m.hydrogen_added = 'Yes' RETURN m.refcode, m.name, m.hydrogen_added
+Which MOFs have had hydrogen atoms added to their structures?
+Can you provide a list of MOFs that received hydrogen atom additions to their structures?
+What are the MOFs that had hydrogen atoms incorporated into their frameworks?
+
+List the MOFs which have unreliable chemistry information.
+MATCH (m:MOF) WHERE m.unreliable_chemistry = 'Yes' RETURN m.refcode, m.name, m.unreliable_chemistry
+Could you provide a list of MOFs that have unreliable chemistry information?
+What are the MOFs that have unreliable chemical data?
+Which MOFs have chemistry information that is considered unreliable?
+
+List the filenames of the MOFs 'MOF-5.
+MATCH (m:MOF) WHERE m.name CONTAINS 'MOF-5' RETURN m.refcode, m.name, m.filename
+Can you provide a list of the filenames for the MOFs with the name 'MOF-5'?
+What are the filenames associated with the MOFs named 'MOF-5'?
+Which filenames correspond to the MOFs with the name 'MOF-5'?
+
+What is the r_factor of a MOF 'MOF-5'?
+MATCH (m:MOF) WHERE m.name CONTAINS 'MOF-5' RETURN m.refcode, m.name, m.r_factor
+Could you provide the value of the r_factor for MOF 'MOF-5'?
+What is the numerical value assigned to the r_factor for MOF 'MOF-5'?
+What is the r_factor of the MOF with the name 'MOF-5'?
+
+What radiation source was used in the experiment to determine the structure of the MOFs 'MOF-5'?
+MATCH (m:MOF) WHERE m.name CONTAINS 'MOF-5' RETURN m.refcode, m.name, m.radiation_source
+What was the radiation source employed in the experiment used to determine the structure of MOFs with the name 'MOF-5'?
+Could you specify the radiation source used to determine the structure of the MOFs named 'MOF-5'?
+What type of radiation was used in the experiment to determine the structure of MOFs with the name 'MOF-5'?
+
+What is the database name of the MOFs 'HKUST-1'?
+MATCH (m:MOF) WHERE m.name CONTAINS 'HKUST-1' RETURN m.refcode, m.name, m.database_name
+What is the name of the database that contains information about MOFs named 'HKUST-1'?
+Can you provide the database name for MOFs with the name 'HKUST-1'?
+What is the specific name of the database that contains information about the MOFs named 'HKUST-1'?
+
+What is the disorder detail of the MOFs 'HKUST-1'?
+MATCH (m:MOF) WHERE m.name CONTAINS 'HKUST-1' RETURN m.refcode, m.name, m.disorder_details
+Could you provide information on the disorder detail for the MOFs named 'HKUST-1'?
+What are the details of the disorder present in the MOFs named 'HKUST-1'?
+What is the specific disorder information associated with the MOFs named 'HKUST-1'?
+
+What remarks are associated with the MOFs 'HKUST-1'?
+MATCH (m:MOF) WHERE m.name CONTAINS 'HKUST-1' RETURN m.refcode, m.name, m.remarks
+Could you provide the remarks or comments associated with the MOFs named 'HKUST-1'?
+What are the notes or comments related to the MOFs with the name 'HKUST-1'?
+What are the observations or remarks made about the MOFs named 'HKUST-1'?
+
+What is the source of radiation for the experiment used to determine the structure of the MOFs 'HKUST-1'?
+MATCH (m:MOF) WHERE m.name CONTAINS 'HKUST-1' RETURN m.refcode, m.name, m.radiation_source
+What type of radiation was used in the experiment to determine the structure of MOFs with the name 'HKUST-1'?
+Can you specify the source of radiation used in the experiment to determine the structure of the MOFs named 'HKUST-1'?
+What was the radiation used in the experiment to determine the structure of MOFs with the name 'HKUST-1'?
+
+What is the value of z_prime for the MOFs 'HKUST-1'?
+MATCH (m:MOF) WHERE m.name CONTAINS 'HKUST-1' RETURN m.refcode, m.name, m.z_prime
+What is the numerical value assigned to z_prime for MOFs 'HKUST-1'?
+Could you provide the z_prime value for MOFs 'HKUST-1'?
+What is the z_prime value of the MOFs 'HKUST-1'?
+
+What is the length of the a-axis of the unit cell of the MOFs 'HKUST-1'?
+MATCH (m:MOF) WHERE m.name CONTAINS 'HKUST-1' RETURN m.refcode, m.name, m.cell_lengths
+Can you tell me the dimension of the a-axis for the unit cell of MOFs 'HKUST-1'?
+What is the numerical value assigned to the length of the a-axis for the unit cell of MOFs 'HKUST-1'?
+List the length of the a-axis for the unit cell of MOFs 'HKUST-1'.
+
+What is the length of the b-axis of the unit cell of the MOFs 'HKUST-1'?
+MATCH (m:MOF) WHERE m.name CONTAINS 'HKUST-1' RETURN m.refcode, m.name, m.cell_lengths
+What is the value of the length of the b-axis for the unit cell of MOFs 'HKUST-1'?
+Can you provide the length of the b-axis for the unit cell of MOFs 'HKUST-1'?
+What is the numerical value assigned to the length of the b-axis for the unit cell of MOFs 'HKUST-1'?
+
+What is the length of the c-axis of the unit cell of the MOFs 'HKUST-1'?
+MATCH (m:MOF) WHERE m.name CONTAINS 'HKUST-1' RETURN m.refcode, m.name, m.cell_lengths
+Can you tell me the length of the c-axis for the unit cell of MOFs 'HKUST-1'?
+What is the numerical value assigned to the length of the c-axis for the unit cell of MOFs 'HKUST-1'?
+List the length of the c-axis for the unit cell of MOFs 'HKUST-1'.
+
+What is the angle between the b-axis and the c-axis of the unit cell of the MOFs 'HKUST-1'?
+MATCH (m:MOF) WHERE m.name CONTAINS 'HKUST-1' RETURN m.refcode, m.name, m.cell_angles
+Could you specify the angle formed by the b-axis and c-axis for the unit cell of MOFs 'HKUST-1'?
+What is the numerical value assigned to the angle between the b-axis and c-axis for the unit cell of MOFs 'HKUST-1'?
+What is the size of the angle formed between the b-axis and c-axis for the unit cell of MOFs 'HKUST-1'?
+
+What is the angle between the a-axis and the c-axis of the unit cell of the MOFs 'HKUST-1'?
+MATCH (m:MOF) WHERE m.name CONTAINS 'HKUST-1' RETURN m.refcode, m.name, m.cell_angles
+What is the value of the angle between the a-axis and c-axis for the unit cell of MOFs 'HKUST-1'?
+Could you provide the numerical value assigned to the angle between the a-axis and c-axis for the unit cell of MOFs 'HKUST-1'?
+What is the size of the angle formed between the a-axis and c-axis for the unit cell of MOFs 'HKUST-1'?
+
+What is the angle between the a-axis and the b-axis of the unit cell of the MOFs 'HKUST-1'?
+MATCH (m:MOF) WHERE m.name CONTAINS 'HKUST-1' RETURN m.refcode, m.name, m.cell_angles
+What is the numerical value assigned to the angle between the a-axis and b-axis for the unit cell of MOFs 'HKUST-1'?
+Could you specify the angle formed by the a-axis and b-axis for the unit cell of MOFs 'HKUST-1'?
+What is the size of the angle formed between the a-axis and b-axis for the unit cell of MOFs 'HKUST-1'?
+
+What is the deposition date of the MOFs 'HKUST-1' in the database?
+MATCH (m:MOF) WHERE m.name CONTAINS 'HKUST-1' RETURN m.refcode, m.name, m.deposition_date
+When was the MOFs 'HKUST-1' added to the database?
+Can you tell me the date on which the MOFs 'HKUST-1' was deposited in the database?
+List the deposit date for the MOFs 'HKUST-1' in the database.
+
+What is the color of the MOFs 'HKUST-1' under different lighting conditions?
+MATCH (m:MOF) WHERE m.name CONTAINS 'HKUST-1' RETURN m.refcode, m.name, m.color
+Could you describe the color of MOFs 'HKUST-1' under different lighting conditions?
+What is the color of MOFs 'HKUST-1' when viewed under various lighting conditions?
+How does the color of MOFs 'HKUST-1' change with different lighting conditions?
+
+What is the source of the MOFs 'HKUST-1' (e.g., synthetic, natural)?
+MATCH (m:MOF) WHERE m.name CONTAINS 'HKUST-1' RETURN m.refcode, m.name, m.source
+Can you provide information on the source of the MOFs 'HKUST-1'?
+Where was the information about MOFs 'HKUST-1' obtained?
+List the source of the MOFs 'HKUST-1'.
+
+What is the datasouce for the experiment used to determine the structure of the MOFs 'HKUST-1'?
+MATCH (m:MOF) WHERE m.name CONTAINS 'HKUST-1' RETURN m.refcode, m.name, m.datasource
+From where was the experimental data collected to determine the structure of MOFs 'HKUST-1'?
+What is the source of the data used to analyze the MOFs 'HKUST-1' structure?
+Which database or experimental technique was utilized to determine the structure of MOFs 'HKUST-1'?
+
+What is the deposition number of the MOFs 'HKUST-1' in the database?
+MATCH (m:MOF) WHERE m.name CONTAINS 'HKUST-1' RETURN m.refcode, m.name, m.deposition_number
+Can you provide the deposition number assigned to the MOFs 'HKUST-1' in the database?
+What is the database deposition number for MOFs 'HKUST-1'?
+Do you know the deposition number assigned to the MOFs 'HKUST-1' in the database?
+
+What is the filename of the data file for the MOFs 'HKUST-1'?
+MATCH (m:MOF) WHERE m.name CONTAINS 'HKUST-1' RETURN m.refcode, m.name, m.filename
+Could you tell me the name of the file containing data for MOFs 'HKUST-1'?
+What is the file name for the data associated with MOFs 'HKUST-1'?
+Can you provide the specific name of the data file for MOFs 'HKUST-1'?
+
+What is the chemical name of the ligand used to synthesize the MOFs 'MOF-3'?
+MATCH (m:MOF)-[:has_organicLinker]->(l:Organic_Linker) WHERE m.name CONTAINS 'MOF-3' RETURN m.refcode, m.name, l.name
+What is the name of the chemical compound used as the ligand in the synthesis of MOFs 'MOF-3'?
+Can you provide the name of the ligand that was utilized to produce MOFs 'MOF-3'?
+Give me the chemical compound used as the ligand in the synthesis of MOFs 'MOF-3' named.
+
+What is the chemical formula of the ligand?
+MATCH (m:MOF)-[:has_organicLinker]->(l:Organic_Linker) WHERE m.name CONTAINS 'MOF-3' RETURN m.refcode, m.name, l.name
+Could you tell me the chemical formula for the ligand used in the MOFs 'MOF-3' synthesis?
+What is the formula of the chemical compound utilized as the ligand in MOFs 'MOF-3'?
+Can you provide the chemical formula for the ligand that was used in the synthesis of MOFs 'MOF-3'?
+
+Which atom is the most frequently used atom in all MOFs?
+MATCH (n:Atom) WITH n.name AS name, count(*) as freq ORDER BY freq LIMIT 1 RETURN name
+What is the atom that is most commonly found in all MOFs?
+Which is the most abundant atom present in all MOFs?
+Can you identify the atom that is most frequently used across all MOFs?
+
+Which bond is the most frequently used bond in all MOFs?
+MATCH (n:Bond) WITH n.name AS name, count(*) as freq ORDER BY freq LIMIT 1 RETURN name
+What is the bond that is most frequently used in all MOFs?
+Which bond is the most common in all MOFs?
+Can you identify the bond that is used most frequently across all MOFs?
+
+List the number of publications in each year.
+MATCH (p:Publication) RETURN p.year, COUNT(p) AS num_publications ORDER BY p.year
+Could you provide a list of the number of publications for each year?
+What is the number of publications that were released each year?
+Can you list the number of publications by year?
+
+List the journal names where the MOF 'MOF-5' was published.
+MATCH (mof:MOF {name: 'MOF-5'})-[:has_publication]-(pub:Publication)-[:in_journal]-(j:Journal) RETURN DISTINCT j.name
+In which journals has the MOF 'MOF-5' been published?
+Could you provide a list of journals that have published research on MOF 'MOF-5'?
+Can you name the journals where MOF 'MOF-5' has been published?
+
+Which journal has the most MOFs published?
+MATCH (mof:MOF)-[:has_publication]-(pub:Publication)-[:in_journal]-(j:Journal) RETURN j.name, count(j) as freq ORDER BY freq DESC LIMIT 1
+What is the journal with the highest number of published MOFs?
+Which journal has published the most MOFs?
+What journal tops the list for the highest number of MOFs published?
+
+List the top 5 journals that have the most MOFs published.
+MATCH (mof:MOF)-[:has_publication]-(pub:Publication)-[:in_journal]-(j:Journal) RETURN j.name, count(j) as freq ORDER BY freq DESC LIMIT 5
+What are the 5 journals with the highest number of published MOFs?
+Which journals are in the top 5 for publishing MOFs?
+What are the top 5 journals with the most number of MOFs published?
+
+Who published the most number of MOFs?
+MATCH (mof:MOF)-[:has_publication]-(pub:Publication)-[:has_author]-(j:Author) RETURN j.name, count(j) as freq ORDER BY freq DESC LIMIT 1
+Which author has published the most MOFs?
+What individual has the highest number of published MOFs?
+Who tops the list for the highest number of MOFs published?
+
+List the top 5 authors that have published the most number of MOFs.
+MATCH (mof:MOF)-[:has_publication]-(pub:Publication)-[:has_author]-(j:Author) RETURN j.name, count(j) as freq ORDER BY freq DESC LIMIT 5
+Who are the 5 authors with the highest number of published MOFs?
+Which authors are in the top 5 for publishing MOFs?
+What are the top 5 authors with the most number of MOFs published?
+
+Which crystal system is the most frequent one?
+MATCH (m:MOF)-[r:has_crystalSystem]->(c:Crystal_System) RETURN c.name, count(c) as freq ORDER BY freq DESC LIMIT 1
+What is the most commonly occurring crystal system?
+Which crystal system appears most frequently?
+Which crystal system has the highest occurrence rate?
+
+Which family do the majority of the MOFs come from? 
+MATCH (m:MOF)-[r:has_family]->(c:Family) RETURN c.name, count(c) as freq ORDER BY freq DESC LIMIT 1
+From which family do most MOFs originate?
+What is the predominant family of MOFs?
+Which family accounts for the majority of MOFs?
+
+List the top 5 families that most of the MOFs belong to.
+MATCH (m:MOF)-[r:has_family]->(c:Family) RETURN c.name, count(c) as freq ORDER BY freq DESC LIMIT 5
+What are the 5 families with the most MOFs?
+Which families have the highest number of MOFs?
+What are the top 5 families that most MOFs belong to?
+
+Which metal is most typically used to create MOFs?
+MATCH (m:MOF)-[r:has_metal]->(c:Metal) RETURN c.name, count(c) as freq ORDER BY freq DESC LIMIT 1
+What is the most common metal used in creating MOFs?
+Which metal is typically utilized in creating MOFs?
+What metal has the highest frequency of use in MOF synthesis?
+
+List the top 5 metals that are most typically used to create MOFs.
+MATCH (m:MOF)-[r:has_metal]->(c:Metal) RETURN c.name, count(c) as freq ORDER BY freq DESC LIMIT 5
+What are the 5 most commonly used metals in creating MOFs?
+Which metals are typically utilized in MOF synthesis?
+What are the top 5 metals with the highest frequency of use in MOF synthesis?
+
+Which organic lingand is most typically used to create MOFs?
+MATCH (m:MOF)-[r:has_organicLinker]->(c:Organic_Linker) RETURN c.name, count(c) as freq ORDER BY freq DESC LIMIT 1
+What is the most commonly used organic ligand in creating MOFs?
+Which ligand is typically utilized in creating MOFs?
+What ligand has the highest frequency of use in MOF synthesis?
+
+List the top 5 organic linkers that are most typically used to create MOFs.
+MATCH (m:MOF)-[r:has_organicLinker]->(c:Organic_Linker) RETURN c.name, count(c) as freq ORDER BY freq DESC LIMIT 5
+Can you provide a list of the 5 most frequently used organic linkers in MOF synthesis?
+Which 5 organic linkers are typically used to fabricate MOFs?
+Name the top 5 organic linkers that are used in the synthesis of MOFs.
+
+The most common MOF topology has what RCSR code?
+MATCH (m:MOF)-[r:has_topology]->(c:Topology) RETURN c.rcsr_code, count(c) as freq ORDER BY freq DESC LIMIT 1
+What is the RCSR code for the most common MOF topology?
+Can you identify the RCSR code corresponding to the predominant MOF topology?
+Which RCSR code is linked to the most frequent MOF topology?
+
+Enumerate the top ten RCSR codes for the MOFs topologies.
+MATCH (m:MOF)-[r:has_topology]->(c:Topology) RETURN c.rcsr_code, count(c) as freq ORDER BY freq DESC LIMIT 10
+Can you enumerate the 10 RCSR codes that are associated with MOF topologies?
+Provide a list of the top 10 RCSR codes for MOFs according to their topology.
+What are the top 10 RCSR codes assigned to the different MOF topologies?
+
+Which space group do the majority of MOFs belong to?
+MATCH (m:MOF)-[r:has_spaceGroup]->(c:Space_Group) RETURN c.name, count(c) as freq ORDER BY freq DESC LIMIT 1
+What is the most common space group for MOFs?
+Which space group is most frequently observed in MOFs?
+To which space group do most MOFs belong?
+
+List the top 5 space groups for MOFs.
+MATCH (m:MOF)-[r:has_spaceGroup]->(c:Space_Group) RETURN c.name, count(c) as freq ORDER BY freq DESC LIMIT 5
+List the top 5 space groups associated with MOFs.
+Can you provide the names of the 5 most prevalent space groups in MOFs?
+Name the 5 space groups that are commonly observed in MOFs.
+
+What is the publication title of the MOF-5?
+MATCH (m:MOF {name:'MOF-5'})-[r:has_publication]->(c:Publication)-[:has_title]-(t:Title) RETURN DISTINCT t.title
+Can you tell me the title of the publication describing MOF-5?
+What is the name of the paper that introduced MOF-5?
+Provide the title of the publication that reported the synthesis of MOF-5.
+
+What is the most popular synthesis name in the database?
+MATCH (n:Synthesis_Procedure)-[:has_publication]-() RETURN n.name, count(n) as freq ORDER BY freq DESC LIMIT 1
+Which synthesis name is the most frequently used in the database?
+What is the most commonly employed synthesis name in the MOF database?
+Can you identify the most popular synthesis name in the MOF database?
+
+What is the refcode for MOF-3?
+MATCH (m:MOF) WHERE m.name CONTAINS 'MOF-3' RETURN m.refcode
+Can you provide the refcode assigned to MOF-3?
+What is the reference code for MOF-3?
+What is the identifier assigned to MOF-3 in the MOF database?
+
+What is the publication information for the paper that describes the synthesis procedure for MOF-3?
+MATCH (m:MOF)-[:has_publication]->(p:Publication) WHERE m.name CONTAINS 'MOF-3' RETURN p.doi, p.year, p.first_page, p.volume
+Can you provide the publication information for the paper detailing the synthesis of MOF-3?
+What is the reference for the publication that describes the synthesis of MOF-3?
+Which paper provides the synthesis procedure for MOF-3 and what are its publication details?
+
+What is the name of the synthesis procedure used to make MOF-3?
+MATCH (m:MOF)-[:has_publication]->(:Publication)<-[:has_publication]-(s:Synthesis_Procedure) WHERE m.name CONTAINS 'MOF-3' RETURN s.name
+Can you tell me the name of the synthesis method employed to produce MOF-3?
+What is the title of the synthetic procedure used to fabricate MOF-3?
+Provide the name of the synthesis protocol that was utilized to synthesize MOF-3.
+
+What is the symbol used to represent the synthesis procedure for MOF-3?
+MATCH (m:MOF)-[:has_publication]->(:Publication)<-[:has_publication]-(s:Synthesis_Procedure) WHERE m.name CONTAINS 'MOF-3' RETURN s.symbol
+In what way is the synthesis procedure for MOF-3 represented by a symbol?
+How can the synthesis procedure for MOF-3 be represented by a symbol?
+Which symbol is utilized to represent the synthesis procedure for MOF-3?
+
+What is the metal precursor used in the synthesis of MOF-3?
+MATCH (m:MOF)-[:has_publication]->(:Publication)<-[:has_publication]-(s:Synthesis_Procedure)-[:has_metal_precursor]->(mp:Synthesis_Metal_Precursor) WHERE m.name CONTAINS 'MOF-3' RETURN mp.name
+What is the metallic source applied during the synthesis of MOF-3?
+Which metal precursor is utilized for the synthesis of MOF-3?
+What is the source of the metal in the synthesis of MOF-3?
+
+What is the formula of the metal precursor used in the synthesis of MOF-3?
+MATCH (m:MOF)-[:has_publication]->(:Publication)<-[:has_publication]-(s:Synthesis_Procedure)-[:has_metal_precursor]->(mp:Synthesis_Metal_Precursor) WHERE m.name CONTAINS 'MOF-3' RETURN DISTINCT mp.formula
+What is the chemical formula of the metal precursor utilized in the synthesis of MOF-3?
+What is the molecular formula of the metal precursor used in the synthesis of MOF-3?
+Which chemical formula represents the metal precursor used in the synthesis of MOF-3?
+
+What is the name of the organic precursor used in the synthesis of MOF-3?
+MATCH (m:MOF)-[:has_publication]->(:Publication)<-[:has_publication]-(s:Synthesis_Procedure)-[:has_organic_precursor]->(op:Synthesis_Organic_Precursor) WHERE m.name CONTAINS 'MOF-3' RETURN DISTINCT op.name
+How is the organic precursor used in the synthesis of MOF-3 identified?
+Which name is given to the organic precursor used in the synthesis of MOF-3?
+List the name of the organic precursor used in the synthesis of MOF-3.
+
+What is the SMILES code for the organic precursor used in the synthesis of MOF-3?
+MATCH (m:MOF)-[:has_publication]->(:Publication)<-[:has_publication]-(s:Synthesis_Procedure)-[:has_organic_precursor]->(op:Synthesis_Organic_Precursor) WHERE m.name CONTAINS 'MOF-3' RETURN DISTINCT op.smiles
+How is the organic precursor used in the synthesis of MOF-3 represented by SMILES code?
+What is the SMILES code for the organic precursor applied in the synthesis of MOF-3?
+Which SMILES code is used to represent the organic precursor in the synthesis of MOF-3?
+
+What is the name of the solvent precursor used in the synthesis of MOF-3?
+MATCH (m:MOF)-[:has_publication]->(:Publication)<-[:has_publication]-(s:Synthesis_Procedure)-[:has_solvent_precursor]->(sp:Synthesis_Solvent_Precursor) WHERE m.name CONTAINS 'MOF-3' RETURN DISTINCT sp.name
+What is the designation of the solvent precursor applied in the synthesis of MOF-3?
+Which name is given to the solvent precursor used in the synthesis of MOF-3?
+Give me the name of the solvent precursor used in the synthesis of MOF-3 named.
+
+What is the composition of the solvent used in the synthesis of MOF-3?
+MATCH (m:MOF)-[:has_publication]->(:Publication)<-[:has_publication]-(s:Synthesis_Procedure)-[:has_solvent_precursor]->(sp:Synthesis_Solvent_Precursor)-[:has_composition]->(sc:Solvent_Composition) WHERE m.name CONTAINS 'MOF-3' RETURN DISTINCT sc.comp_id, sc.unit, sc.order, sc.value
+What are the components of the solvent applied during the synthesis of MOF-3?
+Which elements or compounds form the solvent used in the synthesis of MOF-3?
+What is the makeup of the solvent used in the synthesis of MOF-3?
+
+What is the temperature used in the synthesis of MOF-3?
+MATCH (m:MOF)-[:has_publication]->(:Publication)<-[:has_publication]-(s:Synthesis_Procedure)-[:has_temperature]->(t:Synthesis_Temperature) WHERE m.name CONTAINS 'MOF-3' RETURN t.Value, t.Unit
+What is the level of temperature applied in the synthesis of MOF-3?
+Which temperature is utilized during the synthesis of MOF-3?
+At what temperature is MOF-3 synthesized?
+
+What is the unit for the temperature used in the synthesis of MOF-3?
+MATCH (m:MOF)-[:has_publication]->(:Publication)<-[:has_publication]-(s:Synthesis_Procedure)-[:has_temperature]->(t:Synthesis_Temperature) WHERE m.name CONTAINS 'MOF-3' RETURN t.Value, t.Unit
+What is the measurement unit for the temperature applied in the synthesis of MOF-3?
+Which unit is utilized to measure the temperature during the synthesis of MOF-3?
+How is the temperature in the synthesis of MOF-3 quantified?
+
+What is the time used in the synthesis of MOF-3?
+MATCH (m:MOF)-[:has_publication]->(:Publication)<-[:has_publication]-(s:Synthesis_Procedure)-[:has_time]->(st:Synthesis_Time) WHERE m.name CONTAINS 'MOF-3' RETURN st.Value, st.Unit
+How long does the synthesis of MOF-3 take?
+Which duration is required for the synthesis of MOF-3?
+What is the time period for the synthesis of MOF-3?
+
+What is the unit for the time used in the synthesis of MOF-3?
+MATCH (m:MOF)-[:has_publication]->(:Publication)<-[:has_publication]-(s:Synthesis_Procedure)-[:has_time]->(st:Synthesis_Time) WHERE m.name CONTAINS 'MOF-3' RETURN st.Value, st.Unit
+Can you provide the time unit used in synthesizing MOF-3?
+What is the temporal unit used during the synthesis of MOF-3?
+What is the denomination of time used in the production of MOF-3?
+
+What is the value of the property used in the synthesis of MOF-3?
+MATCH (m:MOF)-[:has_publication]->(:Publication)<-[:has_publication]-(s:Synthesis_Procedure)-[:has_property]->(sp:Synthesis_Property) WHERE m.name CONTAINS 'MOF-3' RETURN sp.value, sp.unit
+Give me the value of the property employed during MOF-3's synthesis.
+What is the value of the property utilized in MOF-3's synthesis?
+List the value of the property in the synthesis of MOF-3.
+
+What is the unit for the property used in the synthesis of MOF-3?
+MATCH (m:MOF)-[:has_publication]->(:Publication)<-[:has_publication]-(s:Synthesis_Procedure)-[:has_property]->(sp:Synthesis_Property) WHERE m.name CONTAINS 'MOF-3' RETURN sp.value, sp.unit
+Can you provide the measurement unit of the property employed during MOF-3's synthesis?
+Give me the unit of the property in the creation of MOF-3.
+List the unit of the property in MOF-3's synthesis.
+
+What is the name of the synthesis operation used in the synthesis of MOF-3?
+MATCH (m:MOF)-[:has_publication]->(:Publication)<-[:has_publication]-(s:Synthesis_Procedure)-[:has_operation]->(so:Synthesis_Operation) WHERE m.name CONTAINS 'MOF-3' RETURN so.name
+What is the term used to refer to the operation of synthesizing MOF-3?
+Can you provide the name of the synthetic operation used in creating MOF-3?
+How is the synthesis operation of MOF-3 called?
+
+What are the conditions of the synthesis operation used in the synthesis of MOF-3?
+MATCH (m:MOF)-[:has_publication]->(:Publication)<-[:has_publication]-(s:Synthesis_Procedure)-[:has_operation]->(so:Synthesis_Operation)-[:has_condition]->(soc:Synthesis_Operation_Condition) WHERE m.name CONTAINS 'MOF-3' RETURN soc.Property, soc.Value, soc.Unit, soc.order
+What were the circumstances during the synthesis of MOF-3?
+What factors were considered during the creation of MOF-3?
+Can you describe the situation during the synthesis of MOF-3?
+
+What is the order of the synthesis operation used in the synthesis of MOF-3?
+MATCH (m:MOF)-[:has_publication]->(:Publication)<-[:has_publication]-(s:Synthesis_Procedure)-[:has_operation]->(so:Synthesis_Operation) WHERE m.name CONTAINS 'MOF-3' RETURN so.order
+Can you provide the sequence of steps for synthesizing MOF-3?
+In what order were the synthetic operations performed to create MOF-3?
+What was the arrangement of the synthetic processes used in the creation of MOF-3?
+
+What is the publication that describes the synthesis procedure and properties of HKUST-1?
+MATCH (m:MOF)-[:has_publication]-(p:Publication)-[:has_publication]-(s:Synthesis_Procedure) WHERE m.name CONTAINS 'HKUST-1' RETURN p.year, p.volume,p.doi
+Which publication details the synthesis process and characteristics of HKUST-1?
+Can you provide the title of the article that describes the synthetic procedure and properties of HKUST-1?
+What is the name of the published paper that discusses the synthesis process and properties of HKUST-1?
+
+What is the DOI for the publication that describes the synthesis procedure and properties of HKUST-1?
+MATCH (m:MOF)-[:has_publication]-(p:Publication)-[:has_publication]-(s:Synthesis_Procedure) WHERE m.name CONTAINS 'HKUST-1' RETURN p.doi
+Can you provide the DOI of the publication that details the synthetic process and characteristics of HKUST-1?
+What is the doi of the article that describes the synthesis procedure and properties of HKUST-1?
+What is the unique identifier for the publication that discusses the synthesis process and properties of HKUST-1?
+
+In which year the synthesis procedure and properties of HKUST-1 was published?
+MATCH (m:MOF)-[:has_publication]-(p:Publication)-[:has_publication]-(s:Synthesis_Procedure) WHERE m.name CONTAINS 'HKUST-1' RETURN p.year
+What year was the publication that described the synthetic procedure and characteristics of HKUST-1 released?
+Can you provide the year in which the article describing the synthesis process and properties of HKUST-1 was published?
+In what year was the publication discussing the synthesis process and properties of HKUST-1 made available?
+
+What is the symbol used to represent the synthesis procedure for HKUST-1?
+MATCH (m:MOF)-[:has_publication]-(p:Publication)-[:has_publication]-(s:Synthesis_Procedure) WHERE m.name CONTAINS 'HKUST-1' RETURN s.symbol
+Can you provide the symbol used to denote the synthetic process of HKUST-1?
+List the symbol used to represent the synthetic procedure of HKUST-1.
+Give me the symbol used to indicate the synthesis process of HKUST-1.
+
+What is the name of the metal precursor used in the synthesis of HKUST-1?
+MATCH (s:Synthesis_Procedure)-[:has_publication]->(:Publication)<-[:has_publication]-(m:MOF) MATCH (s)-[:has_metal_precursor]->(mp:Synthesis_Metal_Precursor) WHERE m.name CONTAINS 'HKUST-1' RETURN mp.name
+What is the metal source utilized for the creation of HKUST-1?
+What is the specific metallic source used in the synthesis of HKUST-1?
+Which metal precursor is employed in the synthesis of HKUST-1?
+
+What is the formula of the metal precursor used in the synthesis of HKUST-1?
+MATCH (s:Synthesis_Procedure)-[:has_publication]->(:Publication)<-[:has_publication]-(m:MOF) MATCH (s)-[:has_metal_precursor]->(mp:Synthesis_Metal_Precursor) WHERE m.name CONTAINS 'HKUST-1' RETURN mp.formul
+What is the chemical composition of the metal precursor used in the synthesis of HKUST-1?
+What is the molecular formula of the metal source utilized in the production of HKUST-1?
+What is the formula of the metal reagent utilized in the synthesis of HKUST-1?
+
+What is the name of the organic precursor used in the synthesis of HKUST-1?
+MATCH (s:Synthesis_Procedure)-[:has_publication]->(:Publication)<-[:has_publication]-(m:MOF) MATCH (s)-[:has_organic_precursor]->(mp:Synthesis_Organic_Precursor) WHERE m.name CONTAINS 'HKUST-1' RETURN mp.name
+What is the organic ligand employed in the creation of HKUST-1?
+What is the specific name of the organic compound used in the synthesis of HKUST-1?
+Which organic precursor is used in the synthesis of HKUST-1?
+
+What is the SMILES code for the organic precursor used in the synthesis of HKUST-1?
+MATCH (s:Synthesis_Procedure)-[:has_publication]->(:Publication)<-[:has_publication]-(m:MOF) MATCH (s)-[:has_organic_precursor]->(mp:Synthesis_Organic_Precursor) WHERE m.name CONTAINS 'HKUST-1' RETURN mp.smiles
+What is the unique SMILES identifier of the organic precursor utilized in the production of HKUST-1?
+What is the SMILES code for the organic ligand utilized in the synthesis of HKUST-1?
+What is the SMILES notation for the organic precursor employed in the synthesis of HKUST-1?
+
+What is the name of the solvent precursor used in the synthesis of HKUST-1?
+MATCH (s:Synthesis_Procedure)-[:has_publication]->(:Publication)<-[:has_publication]-(m:MOF) MATCH (s)-[:has_solvent_precursor]->(mp:Synthesis_Solvent_Precursor) WHERE m.name CONTAINS 'HKUST-1' RETURN mp.name
+What is the solvent utilized in the creation of HKUST-1?
+What is the specific name of the solvent used in the synthesis of HKUST-1?
+Which solvent precursor is used in the synthesis of HKUST-1?
+
+What is the composition of the solvent used in the synthesis of HKUST-1?
+MATCH (s:Synthesis_Procedure)-[:has_publication]->(:Publication)<-[:has_publication]-(m:MOF) MATCH (s)-[:has_solvent_precursor]->(sp:Synthesis_Solvent_Precursor)-[:has_composition]->(sc:Solvent_Composition) WHERE m.name CONTAINS 'HKUST-1' RETURN sc.comp_id, sc.unit, sc.order, sc.value
+What is the chemical makeup of the solvent used in the production of HKUST-1?
+What is the mixture of the solvent used in the synthesis of HKUST-1?
+What are the components of the solvent used in the synthesis of HKUST-1?
+
+What is the temperature used in the synthesis of HKUST-1?
+MATCH (s:Synthesis_Procedure)-[:has_publication]->(:Publication)<-[:has_publication]-(m:MOF) MATCH (s)-[:has_temperature]->(t:Synthesis_Temperature) WHERE s.name CONTAINS 'HKUST-1' RETURN t.Value, t. Unit
+What is the specific temperature employed in the creation of HKUST-1?
+What is the temperature range used in the synthesis of HKUST-1?
+At what temperature is HKUST-1 synthesized?
+
+What is the time used in the synthesis of HKUST-1?
+MATCH (s:Synthesis_Procedure)-[:has_publication]->(:Publication)<-[:has_publication]-(m:MOF) MATCH (s)-[:has_time]->(t:Synthesis_Time) WHERE s.name CONTAINS 'HKUST-1' RETURN t.Value, t. Unit
+What is the duration of the synthesis process for HKUST-1?
+How long does it take to synthesize HKUST-1?
+What is the time frame for the creation of HKUST-1?
+
+What is the value and unit of the property used in the synthesis of HKUST-1?
+MATCH (s:Synthesis_Procedure)-[:has_publication]->(:Publication)<-[:has_publication]-(m:MOF) MATCH (s)-[:has_property]->(sp:Synthesis_Property) WHERE m.name CONTAINS 'MOF-5' RETURN sp.value, sp.unit
+What is the numerical value and unit of the key parameter used in the production of HKUST-1?
+What is the measurement and unit of the critical property used in the synthesis of HKUST-1?
+What is the magnitude and unit of the critical property utilized in the creation of HKUST-1?
+
+What is the latest year the MOF 'MOF-3' was published?
+MATCH (m:MOF)-[:has_publication]->(p:Publication) WHERE m.name CONTAINS 'MOF-3' RETURN max(p.year)
+In which year was the MOF 'MOF-3' most recently published?
+What is the publication date of the most recent research article on the MOF 'MOF-3'?
+When was the latest study on the MOF 'MOF-3' published?
+
+Among all MOFs whose name contains 'MOF-3', which synthesis procedure has the lowest MOratio?
+MATCH (m:MOF)-[:has_publication]->(:Publication)<-[:has_publication]-(s:Synthesis_Procedure) WHERE m.name CONTAINS 'MOF-3' WITH min(s.MOratio) as min MATCH (m1:MOF)-[:has_publication]->(:Publication)<-[:has_publication]-(s1:Synthesis_Procedure) WHERE (m1.name CONTAINS 'MOF-3') and (s1.MOratio=min) RETURN s1.syn_id, s1.name, s1.symbol, s1.method, s1.MOratio
+What is the synthesis procedure with the smallest MOratio among all MOFs that have 'MOF-3' in their names?
+Which synthesis procedure yields the lowest MOratio among MOFs named 'MOF-3'?
+List the synthesis procedures that have the least MOratio value for MOFs named 'MOF-3'.
+
+What is the number of synthesis operation conditions for any synthesis operation associated with a MOF whose name contains 'MOF-3'?
+MATCH (m:MOF)-[:has_publication]->(:Publication)<-[:has_publication]-(s:Synthesis_Procedure)-[:has_operation]->(o:Synthesis_Operation)-[:has_condition]->(c:Synthesis_Operation_Condition) WHERE m.name CONTAINS 'MOF-3' RETURN count(c)
+What is the number of synthesis operation conditions for any synthesis process linked to a MOF that has 'MOF-3' in its name?
+For a MOF named 'MOF-3', how many synthesis operation conditions exist?
+What is the count of synthesis operation conditions that correspond to MOFs named 'MOF-3'?
+
+What is the highest temperature for any synthesis procedure associated with a MOF whose name contains 'MOF-3'?
+MATCH (m:MOF)-[:has_publication]->(:Publication)<-[:has_publication]-(s:Synthesis_Procedure)-[:has_temperature]->(t:Synthesis_Temperature) WHERE m.name CONTAINS 'MOF-3' RETURN max(t.Value)
+What is the maximum temperature utilized in any synthesis operation linked to MOFs named 'MOF-3'?
+Among all synthesis procedures associated with 'MOF-3' MOFs, what is the highest temperature employed?
+What is the greatest temperature applied in any synthesis procedure associated with MOFs named 'MOF-3'?
+
+What is the shortest time for any synthesis procedure associated with a MOF whose name contains 'MOF-3'?
+MATCH (m:MOF)-[:has_publication]->(:Publication)<-[:has_publication]-(s:Synthesis_Procedure)-[:has_time]->(t:Synthesis_Time) WHERE m.name CONTAINS 'MOF-3' RETURN min(t.Value)
+Among MOFs named 'MOF-3', what is the least amount of time required for any synthesis procedure?
+What is the minimum duration of any synthesis process associated with MOFs named 'MOF-3'?
+What is the shortest time taken by any synthesis procedure associated with MOFs named 'MOF-3'?
+
+What is maximum property value of the synthesis procedures associated with a MOF whose name contains 'MOF-3'?
+MATCH (m:MOF)-[:has_publication]->(:Publication)<-[:has_publication]-(s:Synthesis_Procedure)-[:has_property]->(p:Synthesis_Property) WHERE m.name CONTAINS 'MOF-3' RETURN max(p.value)
+Among all synthesis procedures that are associated with MOFs named 'MOF-3', what is the highest value of any property?
+What is the highest property value achieved in any synthesis operation that corresponds to MOFs named 'MOF-3'?
+What is the greatest value attained by any property in synthesis procedures linked to MOFs named 'MOF-3'?
+
+What is the metal precursor of the synthesis procedure with the largest value for any property associated with a MOF 'MOF-3'?
+MATCH (m:MOF)-[:has_publication]->(:Publication)<-[:has_publication]-(s:Synthesis_Procedure)-[:has_metal_precursor]->(mp:Synthesis_Metal_Precursor) MATCH (s)-[:has_property]->(p:Synthesis_Property) WHERE m.name CONTAINS 'MOF-3' WITH max(p.value) as max MATCH (m1:MOF)-[:has_publication]->(:Publication)<-[:has_publication]-(s1:Synthesis_Procedure)-[:has_metal_precursor]->(mp1:Synthesis_Metal_Precursor) MATCH (s1)-[:has_property]->(p1:Synthesis_Property) WHERE (m1.name CONTAINS 'MOF-3') and  (p1.value=max) RETURN mp1.name
+For the MOF named 'MOF-3', which metal precursor is linked to the synthesis procedure with the highest property value?
+What is the metal precursor used in the synthesis procedure with the largest value for any property associated with MOFs named 'MOF-3'?
+Among all MOFs named 'MOF-3', which metal precursor is utilized in the synthesis procedure with the highest value for any property?
+
+What is the longest time for any synthesis operations associated with a MOF 'MOF-3'?
+MATCH (m:MOF)-[:has_publication]->(:Publication)<-[:has_publication]-(s:Synthesis_Procedure)-[:has_operation]->(o:Synthesis_Operation)-[:has_condition]->(c:Synthesis_Operation_Condition) WHERE (m.name CONTAINS 'MOF-3') and (c.Property='Time') WITH toFloat(c.Value) as val RETURN max(val)
+What is the maximum time required for any synthesis procedure associated with MOFs named 'MOF-3'?
+Among MOFs named 'MOF-3', what is the greatest duration of any synthesis process?
+What is the longest time taken by any synthesis operation associated with MOFs named 'MOF-3'?
+
+What is the highest temperature for any synthesis operations associated with a MOF 'MOF-3'?
+MATCH (m:MOF)-[:has_publication]->(:Publication)<-[:has_publication]-(s:Synthesis_Procedure)-[:has_operation]->(o:Synthesis_Operation)-[:has_condition]->(c:Synthesis_Operation_Condition) WHERE (m.name CONTAINS 'MOF-3') and (c.Property='Temperature') WITH toFloat(c.Value) as val RETURN max(val)
+What is the maximum temperature applied in any synthesis process that is associated with MOFs named 'MOF-3'?
+Among all synthesis procedures that correspond to MOFs named 'MOF-3', what is the highest temperature employed?
+What is the greatest temperature used in the synthesis of any MOF named 'MOF-3'?
+
+What is the value of the organic composition for the MOF 'MOF-3' with the lowest value for any synthesis property?
+MATCH (m:MOF)-[:has_publication]->(:Publication)<-[:has_publication]-(s:Synthesis_Procedure)-[:has_organic_precursor]->(op:Synthesis_Organic_Precursor)-[:has_composition]->(oc:Organic_Composition) MATCH (s)-[:has_property]->(p:Synthesis_Property) WHERE m.name CONTAINS 'MOF-3' RETURN oc.value ORDER BY p.value ASC LIMIT 1
+Among all MOFs named 'MOF-3', what is the organic composition value of the one with the lowest value for any synthesis property?
+For the MOF 'MOF-3' that has the smallest value for any synthesis property, what is its organic composition value?
+What is the organic composition of the MOF 'MOF-3' with the least value for any synthesis property?
+
+What is the largest solvent composition value associated with a synthesis solvent precursor associated with a MOF 'MOF-3'?
+MATCH (m:MOF)-[:has_publication]->(:Publication)<-[:has_publication]-(s:Synthesis_Procedure)-[:has_solvent_precursor]->(sp:Synthesis_Solvent_Precursor)-[:has_composition]->(sc:Solvent_Composition) WHERE m.name CONTAINS 'MOF-3' RETURN max(sc.value)
+Among all solvent precursors used in the synthesis of MOF 'MOF-3', what is the maximum value of solvent composition?
+What is the greatest solvent composition value used in the synthesis of MOF 'MOF-3' among all solvent precursors?
+For the synthesis of MOF 'MOF-3', what is the largest value of solvent composition associated with any solvent precursor?
+
+Which synthesis operation has the most conditions associated with a MOF 'MOF-3'?
+MATCH (m:MOF)-[:has_publication]->(:Publication)<-[:has_publication]-(s:Synthesis_Procedure)-[:has_operation]->(o:Synthesis_Operation)-[:has_condition]->(c:Synthesis_Operation_Condition) WHERE m.name CONTAINS 'MOF-3' RETURN o.name, COUNT(c) ORDER BY COUNT(c) DESC LIMIT 1
+What is the MOF 'MOF-3' synthesis operation that involves the highest number of conditions?
+Among all the synthesis operations used for the MOF 'MOF-3', which one has the greatest number of conditions associated with it?
+In the synthesis of MOF 'MOF-3', which operation has the most extensive set of conditions?
+
+What is the name of the solvent precursor for the synthesis procedure with the lowest MOratio for any MOF 'MOF-3'?
+MATCH (m:MOF)-[:has_publication]->(:Publication)<-[:has_publication]-(s:Synthesis_Procedure)-[:has_solvent_precursor]->(sp:Synthesis_Solvent_Precursor) WHERE m.name CONTAINS 'MOF-3' RETURN sp.name ORDER BY s.MOratio ASC LIMIT 1
+For any MOF 'MOF-3', what is the name of the solvent precursor used in the synthesis process with the smallest MOratio?
+What is the solvent precursor used in the synthesis of MOF 'MOF-3' with the lowest MOratio, and what is its name?
+Among the synthesis procedures of MOF 'MOF-3', which solvent precursor has the lowest MOratio, and what is it called?
+
+Among all MOFs 'MOF-3', which synthesis property has the smallest value?
+MATCH (m:MOF)-[:has_publication]->(:Publication)<-[:has_publication]-(s:Synthesis_Procedure)-[:has_property]->(p:Synthesis_Property) WHERE m.name CONTAINS 'MOF-3' WITH toFloat(p.value) AS val WITH min(val) as min MATCH (m1:MOF)-[:has_publication]->(:Publication)<-[:has_publication]-(s1:Synthesis_Procedure)-[:has_property]->(p1:Synthesis_Property)  WHERE (m1.name CONTAINS 'MOF-3') and (toFloat(p1.value)=min) RETURN p1.prop_id, p1.prop, p1.value
+What is the synthesis property that has the lowest value among all the MOFs 'MOF-3'?
+Among the MOFs 'MOF-3', which one has the smallest value for a synthesis property?
+What is the least value observed for any synthesis property among all the MOFs 'MOF-3'?
+
+What is the title of the earliest publication among all MOFs 'MOF-3'?
+MATCH (m:MOF)-[:has_publication]->(p:Publication)-[:has_title]-(t:Title) WHERE m.name CONTAINS 'MOF-3' RETURN t.title ORDER BY p.year ASC LIMIT 1
+Among all the publications related to MOFs 'MOF-3', which one has the earliest title?
+What is the name of the oldest publication associated with MOFs 'MOF-3'?
+What is the title of the earliest research paper on MOFs 'MOF-3'?
+
+What is the highest temperature of the synthesis procedures for MOFs 'MOF-3'?
+MATCH (m:MOF)-[:has_publication]->(:Publication)<-[:has_publication]-(s:Synthesis_Procedure)-[:has_temperature]->(t:Synthesis_Temperature) WHERE m.name CONTAINS 'MOF-3' RETURN max(t.Value)
+What is the maximum temperature used in the synthesis process of MOFs 'MOF-3'?
+Among all the synthesis procedures of MOFs 'MOF-3', what is the highest temperature that has been utilized?
+What is the upper limit of temperature used in the synthesis of MOFs 'MOF-3'?
+
+What is the name of the last operation among all synthesis procedures for MOFs 'MOF-3'?
+MATCH (m:MOF)-[:has_publication]->(:Publication)<-[:has_publication]-(s:Synthesis_Procedure)-[:has_operation]->(o:Synthesis_Operation) WHERE m.name CONTAINS 'MOF-3' RETURN o.name ORDER BY o.order DESC LIMIT 1
+What is the last step in the synthesis procedure of MOFs 'MOF-3' called?
+Among all the synthesis procedures of MOFs 'MOF-3', what is the name of the final operation?
+What is the last synthesis operation involved in the preparation of MOFs 'MOF-3'?
+
+Among all MOFs 'MOF-3', what is the average value of synthesis properties of the synthesis procedures that have a synthesis operation with a name that contains the word 'heat'?
+MATCH (m:MOF)-[:has_publication]->(:Publication)<-[:has_publication]-(s:Synthesis_Procedure)-[:has_operation]->(o:Synthesis_Operation) WHERE toLower(o.name) CONTAINS 'heat' MATCH (s)-[:has_property]->(p:Synthesis_Property) WHERE m.name CONTAINS 'MOF-3' RETURN avg(toFloat(p.value))
+What is the mean value of synthesis properties for MOFs 'MOF-3' for synthesis procedures that include a heat-related operation in their name?
+Among all the synthesis procedures used in MOFs 'MOF-3', what is the average synthesis property value for those that have a heat-related operation?
+What is the average value of synthesis properties for MOFs 'MOF-3' for synthesis procedures that involve an operation with the word 'heat' in their name?
+
+What is the highest value for any metal composition of the metal precursors for the synthesis procedures with a synthesis operation that has the name 'prepare' for any MOF 'MOF-3'?
+MATCH (m:MOF)-[:has_publication]->(:Publication)<-[:has_publication]-(s:Synthesis_Procedure)-[:has_metal_precursor]->(mp:Synthesis_Metal_Precursor)-[:has_composition]->(mc:Metal_Composition) MATCH (s)-[:has_operation]->(p:Synthesis_Operation) WHERE m.name CONTAINS 'MOF-3' AND toLower(p.name) CONTAINS 'prepare' RETURN max(mc.value) ORDER BY max(mc.value) DESC LIMIT 1
+What is the maximum metal composition value for the metal precursor in synthesis procedures with a 'prepare' operation name for any MOF 'MOF-3'?
+Among all the MOFs 'MOF-3', what is the highest metal composition value observed in the metal precursor used in the preparation process with a 'prepare' operation name?
+What is the upper limit of metal composition value for the metal precursor used in the synthesis procedures that involve a 'prepare' operation for any MOF 'MOF-3'?
+
+What is the publication title for the synthesis procedure that has the highest MOratio among MOFs 'MOF-3'?
+MATCH (m:MOF)-[:has_publication]->(p:Publication)<-[:has_publication]-(s:Synthesis_Procedure) WHERE m.name CONTAINS 'MOF-3' WITH max(s.MOratio) as max MATCH (m1:MOF)-[:has_publication]->(p1:Publication)<-[:has_publication]-(s1:Synthesis_Procedure) MATCH (p1)-[:has_title]-(t:Title) WHERE (m1.name CONTAINS 'MOF-3') and (s1.MOratio=max) RETURN t.title
+Among all the synthesis procedures for MOFs 'MOF-3', what is the title of the publication associated with the one that has the highest MOratio?
+What is the name of the research paper related to the synthesis process of MOFs 'MOF-3' that has the highest MOratio?
+Among the MOFs 'MOF-3', what is the title of the publication that describes the synthesis procedure with the greatest MOratio?
+
+What is the total number of operation conditions of all synthesis operations for any MOFs 'MOF-3'?
+MATCH (m:MOF)-[:has_publication]->(:Publication)<-[:has_publication]-(s:Synthesis_Procedure)-[:has_operation]->(o:Synthesis_Operation)-[:has_condition]->(c:Synthesis_Operation_Condition) WHERE m.name CONTAINS 'MOF-3' RETURN count(c)
+What is the overall count of operation conditions for all the synthesis procedures associated with any MOFs 'MOF-3'?
+Among all the MOFs 'MOF-3', what is the total number of operation conditions required for the synthesis procedures?
+What is the cumulative number of operation conditions involved in the synthesis of any MOFs 'MOF-3'?
+
+List the synthesis operations in order for each MOF 'MOF-3'.
+MATCH (m:MOF)-[:has_publication]->(:Publication)<-[:has_publication]-(s:Synthesis_Procedure)-[:has_operation]->(o:Synthesis_Operation) WHERE m.name CONTAINS 'MOF-3' RETURN s.syn_id, o.name, o.order ORDER BY s.syn_id, o.order ASC
+What are the sequential steps involved in synthesizing 'MOF-3'?
+What is the synthesis protocol for 'MOF-3' in chronological order?
+How is 'MOF-3' prepared, and what are the steps involved in its synthesis?
+
+What is the title of the first publication about MOF-5?
+MATCH (:MOF {name: 'MOF-5'})-[:has_publication]->(p:Publication)-[:has_title]-(t:Title) RETURN t.title ORDER BY p.year ASC LIMIT 1
+What is the name of the initial research article about MOF-5?
+What was the title of the first published paper on MOF-5?
+What is the first research publication that discusses MOF-5?
+
+Which MOF whose name contains 'MIL' has the same topology as MOF-5?
+MATCH (m1:MOF {name: 'MOF-5'})-[:has_topology]->(t:Topology) Match (t)-[:has_topology]-(m:MOF) MATCH (m) WHERE m.name CONTAINS 'MIL' RETURN DISTINCT m.name
+What is the name of the MIL-type MOF that has a similar topology to MOF-5?
+Are there any MOFs with "MIL" in their name that have the same framework topology as MOF-5?
+Which MOF with "MIL" in its name shares the same structure as MOF-5?
+
+How many different authors have published articles about MOF-5?
+MATCH (:MOF {name: 'MOF-5'})-[:has_publication]->(:Publication)-[:has_author]->(a:Author) RETURN COUNT(DISTINCT a.name)
+What is the total number of authors who have published papers on MOF-5?
+How many researchers have contributed to publications on MOF-5?
+What is the count of distinct authors who have written about MOF-5?
+
+What is the journal with the highest number of publications about MOF-5?
+MATCH (:MOF {name: 'MOF-5'})-[:has_publication]->(p:Publication)-[:in_journal]-(j:Journal) RETURN j.name, COUNT(j) ORDER BY COUNT(j) DESC LIMIT 1;
+Which journal has the most published articles on MOF-5?
+What is the most frequently used journal for publishing research on MOF-5?
+In which journal are the majority of the papers about MOF-5 published?
+
+How many different families of MOFs use the same metal as MOF-5?
+MATCH (:MOF {name: 'MOF-5'})-[:has_metal]->(m:Metal)<-[:has_metal]-(:MOF)-[:has_family]->(f:Family) RETURN COUNT(DISTINCT f.name);
+What is the count of MOF families that use the same metal as MOF-5?
+How many MOF groups have used the metal present in MOF-5 in their synthesis?
+What is the number of MOF families that share the same metal as MOF-5?
+
+Which metal is the least common in MOFs with the same crystal system as MOF-5?
+MATCH (:MOF {name: 'MOF-5'})-[:has_crystalSystem]->(c:Crystal_System)<-[:has_crystalSystem]-(mof:MOF)-[:has_metal]->(mm:Metal) RETURN mm.name, COUNT(DISTINCT mm.name) ORDER BY COUNT(DISTINCT mm.name) ASC LIMIT 1;
+Among MOFs with the same crystal system as MOF-5, which metal is the rarest?
+What is the least frequently used metal in MOFs with the same framework as MOF-5?
+Which metal has the lowest occurrence in MOFs with the same crystal system as MOF-5?
+
+What is the most common type of bond present in MOF-5?
+MATCH (:MOF {name: 'MOF-5'})-[:has_bond]->(b:Bond) RETURN b.name, COUNT(DISTINCT b.name) ORDER BY COUNT(DISTINCT b.name) DESC LIMIT 1
+What is the prevalent type of chemical bond found in MOF-5?
+Which bond type is the most abundant in MOF-5?
+What is the most frequent type of bonding between atoms in MOF-5?
+
+How many different organic linkers have been used in the synthesis of MOF-5?
+MATCH (:MOF {name: 'MOF-5'})-[:has_organicLinker]->(ol:Organic_Linker) RETURN count(DISTINCT ol.name)
+What is the total number of organic linkers employed in the production of MOF-5?
+How many distinct types of organic linkers have been used to synthesize MOF-5?
+What is the count of unique organic linkers utilized in MOF-5's synthesis?
+
+Which author has published the most articles about MOFs with the same topology as MOF-5?
+MATCH (:MOF {name: 'MOF-5'})-[:has_topology]-(t:Topology) MATCH (m:MOF)-[:has_topology]-(t) MATCH (m)-[:has_publication]-(p:Publication) MATCH (p)-[:has_author]-(a:Author) RETURN COUNT(DISTINCT p), a.name ORDER BY COUNT(DISTINCT p) DESC LIMIT 1
+Who is the author with the highest number of publications on MOFs that share the same structure as MOF-5?
+Which researcher has published the most articles on MOFs with the same topology as MOF-5?
+What is the name of the author with the most publications about MOFs that have a similar framework to MOF-5?
+
+What is the average number of atoms per MOF-5 structure?
+MATCH (m:MOF)-[:has_atom]->(a:Atom) WHERE m.name CONTAINS 'MOF-5'  WITH count(DISTINCT m.name) AS num_mof, count(DISTINCT a.name) AS num_atom RETURN toFloat(num_atom) / toFloat(num_mof)
+What is the mean count of atoms in a single MOF-5 framework?
+What is the typical amount of atoms found in each MOF-5 structure on average?
+What is the average number of atoms present in one MOF-5 unit?
+
+How many different journals have published articles about MOFs with the same family as MOF-5?
+MATCH (:MOF {name: 'MOF-5'})-[:has_family]-(f:Family)-[:has_family]-(m:MOF)-[:has_publication]-(p:Publication)-[:in_journal]-(j:Journal) RETURN COUNT(DISTINCT j);
+In how many journals have articles about MOFs with the same family as MOF-5 been published?
+How many distinct publications have included papers on MOFs with the family akin to MOF-5?
+In how many journals are there published works on MOFs with a similar family to MOF-5?
+
+Which publication has the most number of MOFs?
+MATCH (m:MOF)-[:has_publication]-(p:Publication) RETURN count(m), p.doi ORDER BY count(m) DESC LIMIT 1
+What publication has the highest count of MOFs?
+Which paper reports the greatest number of MOFs?
+What is the publication that describes the largest number of MOFs?
+
+What is the most common organic linker used in the synthesis of MOFs with the same space group as MOF-5?
+MATCH (m1:MOF)-[:has_spaceGroup]->(s:Space_Group)-[:has_spaceGroup]-(m2:MOF)-[:has_organicLinker]->(o) WITH o.name as organicLinker, count(distinct m2) as numSynthesized ORDER BY numSynthesized DESC LIMIT 1 RETURN organicLinker;
+Which organic linker is most frequently used to synthesize MOFs with the same space group as MOF-5?
+What is the predominant organic linker employed in the synthesis of MOFs with space group similar to MOF-5?
+What is the most commonly used organic linker in MOFs having the same space group as MOF-5?
+
+Which journal has published the most number of articles about MOFs with the same crystal system as MOF-5?
+MATCH (m1:MOF)-[:has_crystalSystem]->(s:Crystal_System)-[:has_crystalSystem]-(m2:MOF)-[:has_publication]-(p)-[:in_journal]-(j) WITH j.name as journalName, count(distinct m2) as numMOFs ORDER BY numMOFs DESC LIMIT 1 RETURN journalName;
+What is the journal that has the largest count of publications on MOFs with the same crystal system as MOF-5?
+In which journal are there the most articles published on MOFs with a crystal system akin to MOF-5?
+What is the journal that has published the most articles about MOFs with the same crystal system as MOF-5?
+
+How many different types of bonds are present in the structure of MOF-5?
+MATCH (m:MOF {name: "MOF-5"})-[:has_bond]->(b:Bond) RETURN count(distinct b)
+What is the count of different types of bonds in the structure of MOF-5?
+How many distinct types of bonds exist in the MOF-5 framework?
+What is the number of various types of bonds found in MOF-5?
+
+What is the name of the metal used in the synthesis of MOF-5?
+MATCH (m:MOF {name: "MOF-5"})-[:has_metal]->(metal:Metal) RETURN DISTINCT metal.name;
+Which metal is used in the synthesis of MOF-5?
+What is the identity of the metal employed in the production of MOF-5?
+What is the name of the metal utilized to make MOF-5?
+
+Which author has published the most articles about MOF-5?
+MATCH (m:MOF {name: "MOF-5"})-[:has_publication]->(p:Publication)-[:has_author]->(a:Author) RETURN a.name, count(*) as numArticles ORDER BY numArticles DESC LIMIT 1;
+Who is the author with the highest number of publications on MOF-5?
+What author has written the largest amount of papers on MOF-5?
+Who has published the most articles about MOF-5?
+
+What is the rsc code of the topology of MOF-5?
+MATCH (m:MOF {name: "MOF-5"})-[:has_topology]->(t:Topology) RETURN DISTINCT t.rcsr_code
+What is the rsc code assigned to the topology of MOF-5?
+What is the code for the topology of MOF-5 according to the RSC database?
+What is the RSC topology code for MOF-5?
+
+Which MOF has the highest number of unique organic linkers used in its synthesis?
+MATCH (m1:MOF)-[:has_organicLinker]->(ol1:Organic_Linker) RETURN COUNT(m1), ol1.name ORDER BY count(m1) DESC LIMIT 1
+What MOF has the greatest count of distinct organic linkers utilized in its synthesis?
+Which MOF employs the most diverse set of organic linkers in its synthesis?
+What MOF has the highest number of different organic linkers used in its synthesis?
+
+What is the name of the Metal in the MOF with the Topology having RCSR code "rut"?
+MATCH (m:MOF)-[:has_topology]->(t:Topology {rcsr_code: "rut"}), (m)-[:has_metal]->(met: Metal) RETURN met.name;
+Can you tell me the name of the Metal used in the MOF that has the Topology identified by the RCSR code "rut"?
+What is the Metal type present in the MOF having the Topology with RCSR code "rut"?
+Identify the Metal component used in the MOF with the Topology designated by the RCSR code "rut".
+
+How many Authors are associated with the publication of the MOF that has a Crystal_System of "triclinic" and a name that contains "IRMOF"?
+MATCH (m:MOF)-[:has_crystalSystem]->(cs:Crystal_System {name: "triclinic"}), (m)-[:has_publication]->(p:Publication), (p)-[:has_author]->(a:Author) WHERE m.name CONTAINS 'IRMOF' RETURN count(distinct a);
+What is the total number of Authors linked to the publication of the MOF with a name containing "IRMOF" and Crystal_System of "triclinic"?
+Count the number of Authors associated with the publication of the MOF that has the Crystal_System of "triclinic" and a name including "IRMOF".
+How many individuals contributed to the publication of the MOF that has the name containing "IRMOF" and a Crystal_System of "triclinic"?
+
+What is the name of the Topology associated with the MOF that has a Metal with the name "Zn" and a Crystal_System of "tetragonal"?
+MATCH (m:MOF)-[:has_metal]->(met: Metal {name: "[Zn]"}), (m)-[:has_crystalSystem]->(cs:Crystal_System {name: "tetragonal"}), (m)-[:has_topology]->(t:Topology) RETURN t.rcsr_code;
+Identify the Topology name that corresponds to the MOF containing a Metal identified as "Zn" and a Crystal_System of "tetragonal".
+What is the Topology name of the MOF having a Metal with the name "Zn" and a Crystal_System of "tetragonal"?
+Name the Topology associated with the MOF having a Metal named "Zn" and a Crystal_System of "tetragonal".
+
+How many atoms are associated with the MOF that has a Space_Group with the name "P6/mmm" and a name that contains "IRMOF"?
+MATCH (m:MOF)-[:has_spaceGroup]->(sg:Space_Group {name: "P6/mmm"}), (m)-[:has_atom]->(a:Atom) WHERE m.name CONTAINS 'IRMOF' RETURN count(distinct a);
+Can you calculate the total number of atoms linked to the MOF with a Space_Group of "P6/mmm" and a name containing "IRMOF"?
+Determine the number of atoms present in the MOF having the name containing "IRMOF" and a Space_Group designated as "P6/mmm".
+Count the atoms associated with the MOF having the Space_Group named "P6/mmm" and the name containing "IRMOF".
+
+What is the name of the Organic_Linker in the MOF that has a Crystal_System of "orthorhombic" and a name that contains "IRMOF"?
+MATCH (m:MOF)-[:has_crystalSystem]->(cs:Crystal_System {name: "orthorhombic"}), (m)-[:has_organicLinker]->(ol:Organic_Linker) WHERE m.name CONTAINS 'IRMOF' RETURN ol.name;
+Identify the name of the Organic_Linker utilized in the MOF with the Crystal_System of "orthorhombic" and the name including "IRMOF"?
+What is the Organic_Linker name used in the MOF with the name containing "IRMOF" and the Crystal_System of "orthorhombic"?
+Name the Organic_Linker present in the MOF having the name including "IRMOF" and the Crystal_System of "orthorhombic".
+
+What is the name of the Topology associated with the MOF that has a Metal with the name "Cu" and a Crystal_System of "cubic"?
+MATCH (m:MOF)-[:has_metal]->(met: Metal {name: "[Cu]"}), (m)-[:has_crystalSystem]->(cs:Crystal_System {name: "cubic"}), (m)-[:has_topology]->(t:Topology) RETURN t.rcsr_code;
+Name the Topology of the MOF that contains a Metal named "Cu" and a Crystal_System of "cubic".
+What is the name of the Topology associated with the MOF having a Metal identified as "Cu" and a Crystal_System of "cubic"?
+Identify the Topology name linked to the MOF having a Metal with the name "Cu" and a Crystal_System of "cubic".
+
+What is the name of the journal that published an article on the synthesis of the MOF that has a Topology with the RCSR code "sra" and a name that contains "IRMOF"?
+MATCH (m:MOF)-[:has_topology]->(t:Topology {rcsr_code: "pcu"}), (m)-[:has_publication]->(p:Publication)-[:in_journal]->(j:Journal) WHERE m.name CONTAINS "IRMOF" RETURN j.name;
+Can you identify the journal that published the article about the synthesis of the MOF with the Topology having the RCSR code "sra" and a name containing "IRMOF"?
+What is the name of the publication where the synthesis of the MOF with the Topology designated by the RCSR code "sra" and the name including "IRMOF" was reported?
+Name the journal that published the article regarding the synthesis of the MOF that has the Topology with RCSR code "sra" and a name containing "IRMOF".
+
+What is the total number of authors for publications about HKUST-1?
+MATCH (m:MOF {name: "HKUST-1"})-[:has_publication]->(p:Publication)-[:has_author]->(a:Author) RETURN count(distinct a);
+Count the total number of Authors associated with publications on HKUST-1.
+What is the cumulative number of Authors linked to publications about HKUST-1?
+Determine the total number of individuals who contributed to publications related to HKUST-1.
+
+Which MOF has the most number of authors in its publications?
+MATCH (m:MOF)-[:has_publication]->(p:Publication)-[:has_author]->(a:Author) WITH m, count(distinct a) as numAuth RETURN m.refcode, numAuth ORDER BY numAuth DESC LIMIT 1;
+Identify the MOF with the highest number of Authors associated with its publications.
+Which MOF has the most individuals contributing to its publications?
+Name the MOF with the largest cumulative number of Authors associated with its publications.
+
+How many different journals have published articles about HKUST-1?
+MATCH (m:MOF {name: "HKUST-1"})-[:has_publication]->(p:Publication)-[:in_journal]->(j:Journal) RETURN count(distinct j);
+Count the total number of journals that have published articles on HKUST-1.
+What is the number of distinct journals that have reported on HKUST-1?
+Determine the total count of journals that have published articles related to HKUST-1.
+
+How many different topologies are shared between HKUST-1 and other MOFs that use the same metal?
+MATCH (m1:MOF {name: "HKUST-1"})-[:has_metal]->(met: Metal), (m1)-[:has_topology]->(t:Topology) MATCH (m2:MOF)-[:has_metal]->(met), (m2)-[:has_topology]->(t) WHERE m2 <> m1 RETURN count(distinct t);
+Count the number of distinct Topologies that are common to HKUST-1 and other MOFs that utilize the same Metal.
+What is the number of unique Topologies shared between HKUST-1 and other MOFs that have the same Metal?
+Determine the total count of different Topologies that are shared between HKUST-1 and other MOFs that use the same Metal.
+
+
+
+
+
