@@ -1,0 +1,88 @@
+# This File contains the prompts used for evaluate
+# GPT-3 and ChatGPT on the QALD-9 Dataset
+
+## Ask GPT-3 to answer question directly
+Use DBpedia-2016-04 knowledge base. \
+Answer the question. No comments. List answers only. \n \
+The keywords in the question are \"{}\". \n\
+Output the answers as {}. \n\
+{}. \n\
+QUESTION: {} \n \
+ANSWER: \n
+
+## Ask ChatGPT to answer questions directly
+Answer the question. No comments. List answers only.  
+The keywords in the question are {}. 
+Output the answers as {}. 
+
+QUESTION: {}
+
+ANSWER: 
+
+## Ask ChatGPT to translate questions to SPARQL queries directly
+Translate the following question to SPARQL query on the 
+DBpedia knowledge base. The output query should include 
+all necessary prefixes for querying the current DBpedia endpoint. 
+No comments. Output SPARQL query only.
+The query should return answers as {}.
+        
+QUESTION: {} 
+        
+QUERY: 
+
+## Few-shot learning on pairs of train questio nand query
+Study the following example question and SPARQL query provided:
+           
+Question:{}
+SPARQL query: {}
+           
+Now, using the learned pattern to translate 
+the new question below into a SPARQL query.
+Write a syntactically corect SPARQL query only.
+The query should return answers as {}.
+Include all required prefixes in the query. 
+No comments. Output query only.
+               
+New question: {}
+Query: 
+
+## Ask ChatGPT to mask entities
+Identify any named entities in the question and replace 
+the discovered named entities with [MASK1], [MASK2], etc.
+One mask for each named entity only.
+Merge consecutive masks into one mask.
+No comments. Output masked question only.
+           
+Question:{}
+Masked Question:
+
+## Ask ChatGPT to generate chain-of-thought explanation
+Briefly explain the following query in logical steps as a chain of thought. 
+Explain in natural language. 
+Forget what you have about the query before. 
+Assume you are trying to construct the query again.
+Treat the mask variables, [MASK1], [MASK2] as real entities.
+No comments. Output the steps only. 
+Do not include the original query in the explanation. 
+
+QUERY:{}
+THOUGHT:
+
+## Few-shot learning on matched train question and query with chain of thought of the train query
+Study the following example question, logical steps, 
+and SPARQL query provided:
+           
+Question:{}
+Logical steps:{}
+SPARQL query: {}
+           
+Now, using the learned pattern and logical steps, translate 
+the new question below into a SPARQL query.
+Write a syntactically corect SPARQL query only.
+The query should return answers as {}.
+Include all required prefixes in the query. 
+No comments. Output query only.
+               
+New question: {}
+Query: 
+
