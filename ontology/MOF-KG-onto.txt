@@ -1,3 +1,0 @@
-# This file contains the definitions of the concepts and relationships
-# for the MOF-KG knowledge graph
-

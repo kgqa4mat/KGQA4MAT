@@ -1,0 +1,58 @@
+# This file contains the concept and relationship definitions for the MOF-KG knowledge graph 
+# stored in the Neo4j platform.
+
+A neo4j database called MOF-KG. The database has the following node definitions: 
+"MOF"["refcode":ID, "disorder_details", "remarks", "r_factor", "radiation_source", "z_prime", "has_3d_structure", "has_disorder", "cell_volume", "z_value", "database_name", "cell_lengths", "cell_angles", "deposition_date", "source", "color", "mofid", "datasource", "deposition_number", "mofkey", "charged_framework", "hydrogen_added", "unreliable_chemistry", "name", "filename", "percentage_void_space", "melting_point", "density", "sohncke_space_group", "solvent", "pressure", "temperature", "chemical_name", "chemical_formula"];
+"Atom"["name":ID];
+"Publication"["doi":ID, "year", "first_page", "volume"];
+"Journal"["name":ID];
+"Author"["name":ID, "order"];
+"Bond"["name":ID];
+"Crystal_System"["name":ID];
+"Family"["name":ID];
+"Metal"["name":ID];
+"Organic_Linker"["name":ID];
+"Topology"["rcsr_code":ID];
+"Space_Group"["name":ID];
+"Synthesis_Procedure"["name", "syn_id":ID, "symbol", "method", "MOratio"];
+"Title"["title":ID];
+"Synthesis_Operation"["DataSource", "order", "op_id":ID, "name"];
+"Synthesis_Operation_Condition"["Property", "Value", "Unit", "order", "cond_id":ID];
+"Synthesis_Time"["time_id":ID, "Value", "Unit"];
+"Synthesis_Temperature"["Unit", "temp_id":ID, "Value"];
+"Synthesis_Property"["value", "unit", "prop_id":ID, "order", "prop"];
+"Synthesis_Metal_Precursor"["name", "mprec_id":ID, "formula"];
+"Metal_Composition"["comp_id":ID, "unit", "order", "value"];
+"Synthesis_Organic_Precursor"["name", "oprec_id":ID, "smiles"];
+"Organic_Composition"["comp_id":ID, "unit", "order", "value"];
+"Synthesis_Solvent_Precursor"["sprec_id":ID, "name"];
+"Solvent_Composition"["comp_id":ID, "unit", "order", "value"];
+"Solvent_Precursor_Solvent"["solv_id":ID, "solvent", "order"].
+
+MOF-KG has the following relationship definitions:
+"(:MOF)->[:has_topology]->(:Topology)";
+"(:MOF)->[:has_organicLinker]->(:Organic_Linker)";
+"(:MOF)->[:has_metal]->(:Metal)";
+"(:MOF)->[:has_spaceGroup]->(:Space_Group)";
+"(:MOF)->[:has_crystalSystem]->(:Crystal_System)";
+"(:MOF)->[:has_family]->(:Family)";
+"(:MOF)->[:has_bond]->(:Bond)";
+"(:MOF)->[:has_Atom]->(:Space_Atom)";
+"(:MOF)->[:has_publication]->(:Publication)";
+"(:Publication)->[:has_title]->(:Title)";
+"(:Publication)->[:in_journal]->(:Journal)";
+"(:Publication)->[:has_author]->(:Author)";
+"(:Synthesis_Procedure)->[:has_publication]->(:Publication)";
+"(:Synthesis_Procedure)->[:has_temperature]->(:Synthesis_Temperature)";
+"(:Synthesis_Procedure)->[:has_time]->(:Synthesis_Time)";
+"(:Synthesis_Procedure)->[:has_property]->(:Synthesis_Property)";
+"(:Synthesis_Procedure)->[:has_metal_precursor]->(:Synthesis_Metal_Precursor)";
+"(:Synthesis_Procedure)->[:has_organic_precursor]->(:Synthesis_Organic_Precursor)";
+"(:Synthesis_Procedure)->[:has_solvent_precursor]->(:Synthesis_Solvent_Precursor)";
+"(:Synthesis_Procedure)->[:has_operation]->(:Synthesis_Operation)";
+"(:Synthesis_Operation)->[:has_condition]->(:Synthesis_Operation_Condition)";
+"(:Synthesis_Operation)->[:has_next]->(:Synthesis_Operation)";
+"(:Synthesis_Metal_Precursor)->[:has_composition]->(:Metal_Composition)";
+"(:Synthesis_Organic_Precursor)->[:has_composition]->(:Organic_Composition)";
+"(:Synthesis_Solvent_Precursor)->[:has_solvent]->(:Solvent_Precursor_Solvent)";
+"(:Synthesis_Solvent_Precursor)->[:has_composition]->(:Solvent_Composition)".
