@@ -16,12 +16,12 @@ The following steps describe how to create the MOF-KG from the sources:
 - Leverage the MOFid system: [https://github.com/snurr-group/mofid](https://github.com/snurr-group/mofid) developed by Bucior et al. in [2] to identify a MOF's metals, organic linkers, and topology.
 - Populate the MOF-KG by directly mapping the extracted data to the ontology.
 
-[1]. Moghadam, P.Z., Li, A., Liu, X.W., Bueno-Perez, R., Wang, S.D., Wiggin, S.B.,
+[1] Moghadam, P.Z., Li, A., Liu, X.W., Bueno-Perez, R., Wang, S.D., Wiggin, S.B.,
 Wood, P.A., Fairen-Jimenez, D.: Targeted classification of metal–organic frame-
 works in the cambridge structural database (csd). Chem. Sci. 11, 8373–8387 (2020).
 https://doi.org/10.1039/D0SC01297A, http://dx.doi.org/10.1039/D0SC01297A
 
-[2]. ucior, B.J., Rosen, A.S., Haranczyk, M., Yao, Z., Ziebel, M.E.,
+[2] ucior, B.J., Rosen, A.S., Haranczyk, M., Yao, Z., Ziebel, M.E.,
 Farha, O.K., Hupp, J.T., Siepmann, J.I., Aspuru-Guzik, A., Snurr,
 R.Q.: Identification schemes for metal–organic frameworks to enable
 rapid search and cheminformatics analysis. Crystal Growth & De-
