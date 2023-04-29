@@ -10,3 +10,8 @@ Data Source 3: Computation-Ready Experimental Metal-Organic Framework (CoRE MOF)
 Data Source 4: Reticular Chemistry Naming and Numbering Database: https://globalscience.berkeley.edu/database
 
 The following steps describe how to create the MOF-KG from the sources:
+- Download the MOF collection, CoRE dataset, RCNN dataset, and the extracted MOF synthesis procedures.
+- Query the CSD crystal database using licensed CSD Python API to extract the information about crystal system and space group.
+- Apply the CSD ConQuest tool to identify a MOF's {family} by applying the search criteria developed by Moghadam et al. in [1]. There are six prototypical   MOF families identified: Zr-oxide nodes (e.g. UiO-66), Cu–Cu paddlewheels (e.g. HKUST-1), ZIF-like, Znoxide nodes, IRMOF-like, and MOF-74/CPO-27-like   materials.
+- Leverage the MOFid system\footnote{https://github.com/snurr-group/mofid} developed by Bucior et al. in [2] to identify a MOF's metals, organic linkers, and topology.
+- Populate the MOF-KG by directly mapping the extracted data to the ontology.
