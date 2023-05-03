@@ -1,4 +1,0 @@
-# This file contains the prompts to generate complex
-# questions against the MOF-KG
-
-
