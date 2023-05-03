@@ -1,0 +1,82 @@
+# This File contains the prompts used for evaluate
+# ChatGPT on the KGQA4MAT benchmark
+
+## Ask ChatGPT to explain given SPARQL query in chain of thought
+Explain the reasoning in the Cypher query in logical steps. \
+Use normal words in the explanation. No comments. \
+Output the explanation only. Query:
+
+## Method 1: Ask ChatGPT to translate questions to queries based on given ontology
+Translate the question to Cypher query using the MOF-KG database. \
+No comments. Output syntactically correct query only. End query with ';'. \
+Question:{}. Query:
+
+## Method 2: 1-shot from train quesetion and query
+Learn the following example question and corresponding query. \
+Learn the connections in the example query on the MOF-KG database. \
+The query uses the terms defined in the MOF-KG database. \
+You can only use these given terms defined in the MOF-KG in future queries. \ 
+Question:{}
+Query:{}
+    
+Use the learned connections and terms in the example query. \
+Translate the following question into a Cypher query.  \
+Use the similar structure as the given example query. \
+Output query only. No comments. End the query with ';'. \
+Question:{}
+Query: 
+
+## Method 3: 1-shot from ontology and train question and query
+{"role": "system", "content": sys_content1},
+{"role": "system", "content": sys_content2},
+
+Learn the following example question and corresponding query. \
+Learn the connections in the example query on the MOF-KG database. \
+The query uses the terms defined in the MOF-KG database. \
+You can only use these given terms defined in the MOF-KG in future queries. \ 
+Question:{}
+Query:{}
+    
+Use the learned connections and terms in the example query and MOF-KG database. \
+Translate the following question into a Cypher query.  \
+Use the similar structure as the given example query. \
+Output query only. No comments. End the query with ';'. \
+Question:{}
+Query: 
+
+## Method 4: 1-shot from train question, query, and chain of thought
+Learn the following example question and corresponding query. \
+Learn the query steps in the explanation of the query. \
+You can only use the 
+terms defined in the MOF-KG database and in the example query. 
+Question: {} 
+Query: {}
+Explanation: {}
+
+Only use the terms in the given example query and the MOF-KG database. \
+Follow the similar structure of the example query. \
+Follow the steps in the explanation of the example query.\
+Translate the following question to Cypher query. \
+Output query only. No comments. \
+Output syntactically correct query only. End query with ';'. \
+Question:{}. Query:
+
+## Method 5: 1-shot from ontology, train question, query, and chain of thought
+{"role": "system", "content": sys_content1},
+{"role": "system", "content": sys_content2},
+
+Learn the following example question and corresponding query. \
+Learn the query steps in the explanation of the query. \
+You can only use the 
+terms defined in the MOF-KG database and in the example query. 
+Question: {} 
+Query: {}
+Explanation: {}
+
+Only use the terms in the given example query and the MOF-KG database. \
+Follow the similar structure of the example query. \
+Follow the steps in the explanation of the example query.\
+Translate the following question to Cypher query. \
+Output query only. No comments. \
+Output syntactically correct query only. End query with ';'. \
+Question:{}. Query:"
